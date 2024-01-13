@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <!--  JDBC Connection Pool  -->
+    <jdbc-connection-pool name="FilmPoisk" res-type="javax.sql.DataSource" datasource-classname="org.postgresql.ds.PGConnectionPoolDataSource">
+        <property name="url" value="jdbc:postgresql://localhost:5432/FilmPoisk"/>
+        <property name="user" value="postgres"/>
+        <property name="password" value="123"/>
+    </jdbc-connection-pool>
+    <!--  JDBC Resource  -->
+    <jdbc-resource jndi-name="FilmPoiskSource" pool-name="FilmPoisk"/>
+</resources>

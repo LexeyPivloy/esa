@@ -30,23 +30,23 @@ If you have no DBMS installed, please install one. You can choose any SQL DBMS y
 
 Develop data layer as Java Beans for the model and make them prepared for use with Entity Persistence.
 
-[MovieEntity](/src/main/java/com/example/lab1/models/MovieEntity.java)\
-[MovieRepository](/src/main/java/com/example/lab1/repositories/MovieRepository.java)\
-[DirectorEntity](/src/main/java/com/example/lab1/models/DirectorEntity.java)\
-[DirectorRepository](/src/main/java/com/example/lab1/repositories/DirectorRepository.java)
+[MovieEntity](lab1/src/main/java/com/example/lab1/models/MovieEntity.java)\
+[MovieRepository](lab1/src/main/java/com/example/lab1/repositories/MovieRepository.java)\
+[DirectorEntity](lab1/src/main/java/com/example/lab1/models/DirectorEntity.java)\
+[DirectorRepository](lab1/src/main/java/com/example/lab1/repositories/DirectorRepository.java)
 
 <h2>Task 5</h2>
 
 Implement business layer for accessing data using session beans.
 
-[MovieService](/src/main/java/com/example/lab1/services/MovieService.java)\
-[DirectorService](/src/main/java/com/example/lab1/services/DirectorService.java)
+[MovieService](lab1/src/main/java/com/example/lab1/services/MovieService.java)\
+[DirectorService](lab1/src/main/java/com/example/lab1/services/DirectorService.java)
 
 <h2>Task 6</h2>
 
 Implement view layer using any technology of your choice, which is applicable here.
 
-[index](src/main/webapp/index.jsp)
+[index](lab1/src/main/webapp/index.jsp)
 
 <h2>Task 7</h2>
 

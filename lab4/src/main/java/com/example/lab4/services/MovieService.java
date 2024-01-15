@@ -1,8 +1,11 @@
 package com.example.lab4.services;
 
+import com.example.lab4.models.AuditEvent;
+import com.example.lab4.models.DirectorEntity;
 import com.example.lab4.models.MovieEntity;
 import com.example.lab4.models.dto.MovieRequest;
 import com.example.lab4.repositories.MovieRepository;
+import com.example.lab4.utils.EventLogger;
 import com.example.lab4.utils.ObjectToDomTransformer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +29,8 @@ public class MovieService {
 
     private final ObjectMapper objectMapper;
 
+    private final EventLogger eventLogger;
+
     private final MovieRepository movieRepository;
 
     @SneakyThrows
@@ -36,10 +41,13 @@ public class MovieService {
     public ResponseEntity<String> create(MovieRequest movieRequest){
         MovieEntity movie = new MovieEntity(randomUUID(), movieRequest.getTitle(), movieRequest.getDirector_id());
         movieRepository.save(movie);
+        eventLogger.log(movie, AuditEvent.CREATE);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
 
     public ResponseEntity<String> delete(UUID movie_id) {
+        MovieEntity movie = new MovieEntity(movie_id, movieRepository.getReferenceById(movie_id).getTitle(), movieRepository.getReferenceById(movie_id).getDirector_id());
+        eventLogger.log(movie, AuditEvent.DELETE);
         movieRepository.deleteById(movie_id);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
